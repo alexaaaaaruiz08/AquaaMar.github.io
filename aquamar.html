@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaMar</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+   
+   
+   <style>
+
+        body {
+            font-family: 'Italic', sans-serif;
+            margin: 1;
+            padding: 1;
+            box-sizing: border-box;
+            background-color: #f8f8f8;
+        }
+
+
+        header {
+            background-color: #8a2e62;
+            color: rgb(255, 255, 255);
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+
+
+
+        nav {
+            background-color: #ffffff;
+            overflow: hidden;
+            box-shadow: 10 8px 8px rgba(2, 59, 55, 0.705);
+        }
+
+
+
+
+
+
+        nav a {
+            float: left;
+            display: block;
+            color: rgb(7, 7, 7);
+            text-align: center;
+            padding: 30px 30px;
+            text-decoration: none;
+            transition: background-color 0.5s, color 0.5s;
+        }
+        nav a:hover {
+            backgroundcolor: #000000;
+            color: rgb(255, 255, 255);
+        }
+    
+        .hero {
+            background-color: #ffa8c2;
+            color: white;
+            padding: 100px 30px 50px;
+            text-align: center;
+            background-image: url('hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            margin-top: 60px;
+        }
+        .hero h1 {
+            margin: 0;
+            font-size: 3em;
+            text-shadow: 10px 10px 10px rgb(255, 255, 255);
+        }
+        .hero p {
+            font-size: 1.2em;
+        }
+        .hero .cta-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: #fffefe;
+            background-color: #000000;
+            border: none;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.5s, transform 0.5s;
+        }
+        .hero .cta-button:hover {
+            background-color: #22ccff;
+            transform: scale(1.1);
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        .section {
+            padding: 40px 20px;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5em;
+            color: #333;
+        }
+        .products .product, .testimonials .testimonial, .services .service {
+            background-color: #bcd1da;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ffffff;
+            border-radius: 9px;
+            box-shadow: 0 1px 1px rgb(238, 222, 222);
+            max-width: 350px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: center;
+        }
+
+        
+    
+        .testimonials .testimonial p {
+            font-style: italic;
+        }
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+   
+        .cart-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #000000;
+            color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.5s, transform 0.5s;
+        }
+        .cart-button:hover {
+            background-color: #000000;
+            transform: scale(1.1);
+        }
+        footer {
+            background-color: #f0bfbf;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            padding: 50px 0;
+        }
+        footer p {
+            margin: 10px 0;
+        }
+
+        .product-item button {
+            background-color: #70baff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        header {
+            background-color: rgba(233, 220, 223, 0.8);
+            color: white;
+            padding: 0rem;
+            text-align: center;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: rgba(51, 51, 51, 0.8);
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        nav a:hover {
+            background-color: rgba(221, 221, 221, 0.8);
+            color: black;
+        }
+
+        .container {
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.8);
+            margin: 2rem auto;
+            border-radius: 8px;
+            max-width: 1200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    
+        .product {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+       
+        .product-item {
+            background-color: rgb(5, 5, 5);
+            border: 1px solid #ffd4d4;
+            border-radius: 8px;
+            padding: 1rem;
+            width: 300px;
+            text-align: center;
+            align-items: rigth;
+            box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .product-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 50px 16px rgba(0, 0, 0, 0.2);
+        }
+        .product-item img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .product-item h3 {
+            margin: 1rem 0 0.5rem ;
+        }
+        .product-item p {
+            margin: 0.5rem 0;
+        }
+        .product-item button {
+            background-color: #dab0da;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .product-item button:hover {
+            background-color: #ffffff;
+            transform: scale(1.54);
+        }
+
+
+    </style>
+</head>
+
+<body>
+<header>
+    <h1>Grupo AquaMar</h1>
+    <button class="cart-button"><i class="fas fa-shopping-cart"></i></button>
+</header>
+
+<style>
+    .social-button {
+        display: inline-block;
+        margin: 60px  60px;
+        text-decoration: none;
+        color: #ffffff;
+        padding: 20px 20px;
+        border-radius: 20px;
+    
+    }
+    .facebook { background-color: #80a8ff; }
+    .twitter { background-color: #76c7fa; }
+    .instagram { background-color: #ff84ad; }    
+                    
+
+</style>
+</head>
+<body>
+<h1>REDES</h1>
+<a href="https://www.facebook.com/tu-pagina" class="social-button facebook">Facebook&nbsp;&nbsp;<i class="fa-brands fa-facebook"></i></a>
+<a href="https://www.twitter.com/tu-pagina" class="social-button twitter">Twitter&nbsp;&nbsp;<i class="fa-brands fa-twitter"></i></a>
+<a href="https://www.instagram.com/tu-pagina" class="social-button instagram">Instagram&nbsp;&nbsp;<i class="fa-brands fa-instagram"></i></a>
+
+</body>
+</html>
+
+<nav>
+    <a href="#inicio">INICIO</a>
+    <a href="#peces">PECES</a>
+    <a href="#perros">PERROS</a>
+    <a href="#gatos">GATOS</a>
+    <a href="#aves">AVES</a>
+    <a href="#testimonios">TESTIMONIOS</a>
+    <a href="#contacto">CONTACTO</a>
+</nav>
+
+<div class="hero" id="inicio">
+    <h1>Bienvenidos a Grupo AquaMar</h1>
+
+    <p>Encuentra los mejores productos para tus mascotas al mejor precio.</p>
+    
+    <a href="#productos" class="cta-button">VER PRODUCTOS</a>
+     
+    <div class="container">
+        <section id="productos">
+            <h2 class="section-title">Nuestros Productos</h2>
+            <div class="product">
+                <div class="product-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEEP4lNwn97Ff-KMm_CMnEnZS3WxOn4Oc2PtA5ZN-3S4skcO8CAdgFmxFixl1me8Y9WiM&usqp=CAU" alt="Cama Para Perros">
+                    <h3>Cama Para Perros</h3>
+                    <p>Alta calidad, comoda.</p>
+                    <p><strong>$299.00</strong></p>
+                    <button>Añadir al Carrito</button>
+                    <button class="cart-button"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+                <div class="product-item">
+                    <img src="https://cdn.businessinsider.es/sites/navi.axelspringer.es/public/media/image/2021/10/como-limpiar-pecera-correctamente-2513359.jpg?tf=3840x" alt="Pecera">
+                    <h3>Pecera</h3>
+                    <p>Alta calidad,  gran tamaño.</p>
+                    <p><strong>$459.00</strong></p>
+                    <button>Añadir al Carrito</button>
+                    <button class="cart-button"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+                <div class="product-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9b17ZrNi54Mqlo9DJhZPHyWvoDfpEO9hKng&s" alt="rascadora">
+                    <h3>Rascadora</h3>
+                    <p>Alta calidad,  gran tamaño y espacio suficiente.</p>
+                    <p><strong>$580.00</strong></p>
+                    <button>Añadir al Carrito</button>
+                    <button class="cart-button"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+        </section>
+    </div>      
+
+    <div class="container">
+        <section id="peces">
+            <h2 class="section-title">Peces</h2>
+            <div class="product">
+                <div class="product-item">
+                    <img src="https://m.media-amazon.com/images/I/71r8nFEZxmL._AC_UF1000,1000_QL80_.jpg" alt="accesorios">
+                    <h3>Accesorios</h3>
+                    <p>Paquete de 12 pzs de Accesorios.</p>
+                    <p><strong>$400.00</strong></p>
+                    <button>Añadir al Carrito</button>
+                    <button class="cart-button"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+                <div class="product-item">
+                    <img src="https://m.media-amazon.com/images/I/61NRC7j+PAL._AC_UF1000,1000_QL80_.jpg" alt="pecera para betta">
+                    <h3>Pecera Para Betta</h3>
+                    <p>Alta calidad, reducida y con buena vista.</p>
+                    <p><strong>$200.00</strong></p>    
+                    <button>Añadir al Carrito</button>
+                    <button class="cart-button"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+                <div class="product-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRPo5i09581N1gqhN5j1n81BX5Uji9eUNZTw&s" alt="comida para peces">
+                    <h3>Comida Para Peces</h3>
+                    <p>Alta calidad,  variado en peces, de los mejores incredientes.</p>
+                    <p><strong>$890.00</strong></p>
+                    <button>Añadir al Carrito</button>
+                    <button class="cart-button"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+                <div class="product-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSyTuNhJcCkBUCL8keQkIh0RYS-nZlScry3g&s" alt="accesorios pecera">
+                    <h3>Accesorios pecera</h3>
+                    <p>Alta calidad,  gran variedad de filtros  y limpiadores.</p>
+                    <p><strong>$580.00</strong></p>
+                    <button>Añadir al Carrito</button>
+                    <button class="cart-button"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+                <div class="product-item">
+                    <img src="https://ideasmarinas.com/wp-content/uploads/2016/07/ultra_fresh_sticks_jumbo_para_peces_carnivoros_02.jpg?v=1632300448" alt="comida jumbo">
+                    <h3>Comida jumbo</h3>
+                    <p>Alta calidad, solo para peces carnivoros.</p>
+                    <p><strong>$600.00</strong></p>
+                    <button>Añadir al Carrito</button>
+                    <button class="cart-button"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+
+            </div>
+        </section>
+    </div>     
+
+    <div class="container">
+        <section id="perros">
+            <h2 class="section-title">Perros</h2>
+            <div class="product">
+                <div class="product-item">
+                    <img src="https://i5.walmartimages.com.mx/gr/images/product-images/img_large/00002310004103L.jpg" alt="alimento">
+                    <h3>Alimento</h3>
+                    <p>Alta calidad, alimento pedigree nutri.</p>
+                    <p><strong>$478.00</strong></p>        
+                    <button>Añadir al Carrito</button>
+                    <button class="cart-button"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+                <div class="product-item">
+                    <img src="https://m.media-amazon.com/images/I/814Qgxp9ebL._AC_UF1000,1000_QL80_.jpg" alt="bolsa de viaje">
+                    <h3>Bolsa de viaje</h3>
+                    <p>Alta calidad, bolsa guardadora para todo tipo de viaje.</p>
+                    <p><strong>$832.00</strong></p>    
+                    <button>Añadir al Carrito</button>
+                    <button class="cart-button"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+                <div class="product-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6HXmArOsUksshkYSuQI9wbgLcFxiczP71IA&s" alt="bolsa de viaje">
+                    <h3>Dispensador de Alimento</h3>
+                    <p>Alta calidad, caja dispensadora de alimento.</p>
+                    <p><strong>$939.00</strong></p>    
+                    <button>Añadir al Carrito</button>
+                    <button class="cart-button"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+                <div class="product-item">
+                    <img src="https://hebmx.vtexassets.com/arquivos/ids/829835-800-800?v=638380138808770000&width=800&height=800&aspect=true" alt="Shampoo">
+                    <h3>Shampoo</h3>
+                    <p>Alta calidad, Shampoo para mascotas y perros.</p>
+                    <p><strong>$39.00</strong></p>
+                    <button>Añadir al Carrito</button>
+                    <button class="cart-button"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+                <div class="product-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRZaS48n2HIiPBV3WgHhybVk48rQCzgmwCZg&s" alt="alimento">
+                    <h3>Alimento</h3>
+                    <p>Alta calidad, alimento para perros, raza pequeña (cada pza).</p>
+                    <p><strong>$17.00</strong></p>    
+                    <button>Añadir al Carrito</button>
+                    <button class="cart-button"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+
+            </div>
+        </section>
+    </div>     
+
+    <div class="container">
+        <section id="gatos">
+            <h2 class="section-title">Gatos</h2>
+            <div class="product">
+                <div class="product-item">
+                    <img src="https://www.smartnfinal.com.mx/wp-content/uploads/2021/04/95468-Alimento-para-gato-la-receta-original-sabor-carne-Whiskas-1.5-kg.jpg" alt="alimento">
+                    <h3>Alimento</h3>
+                    <p>Alta calidad, alimento para gatos whiskas.</p>
+                    <p><strong>$478.00</strong></p>    
+                    <button>Añadir al Carrito</button>
+                    <button class="cart-button"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+                <div class="product-item">
+                    <img src="https://m.media-amazon.com/images/I/81h0WFRhjiL._AC_UF1000,1000_QL80_.jpg" alt="rascador">
+                    <h3>Rascador</h3>
+                    <p>Alta calidad, arbol rascador.</p>
+                    <p><strong>$987.00</strong></p>       
+                    <button>Añadir al Carrito</button>
+                    <button class="cart-button"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+                <div class="product-item">
+                    <img src="https://m.media-amazon.com/images/I/51W1ySJFaBL._AC_.jpg" alt="pelucas">
+                    <h3>Pelucas</h3>
+                    <p>Alta calidad, Juego de 2 pelucas melena de leon.</p>
+                    <p><strong>$356.00</strong></p>
+                    <button>Añadir al Carrito</button>
+                    <button class="cart-button"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+                <div class="product-item">
+                    <img src="https://img.ws.mms.shopee.com.mx/53add46a94195654ac0bc0b5d5b9e00f" alt="lentes">
+                    <h3>Lentes</h3>
+                    <p>Alta calidad, ACCESORIOS lentes para gatos.</p>
+                    <p><strong>$300.00</strong></p>
+                    <button>Añadir al Carrito</button>
+                    <button class="cart-button"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+                <div class="product-item">
+                    <img src="https://purina.com.mx/sites/default/files/styles/webp/public/2022-10/megamix_gatitos_felix.png.webp?itok=izsyjexG" alt="felix">
+                    <h3>Felix</h3>
+                    <p>Alta calidad, Alimento para todo tipo de gatos.</p>
+                    <p><strong>$348.00</strong></p>
+                    <button>Añadir al Carrito</button>
+                    <button class="cart-button"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+
+            </div>
+        </section>
+    </div>         
+    
+
+    <div class="container">
+        <section id="aves">
+            <h2 class="section-title">Aves</h2>
+            <div class="product">
+                <div class="product-item">
+                    <img src="https://static.miscota.com/media/1/photos/products/171234/alimento-para-guacamayas-aves-grandes-pure-fun_1_g.jpeg" alt="alimento">
+                    <h3>Alimento</h3>
+                    <p>Alta calidad, alimento para guacamayas y aves.</p>
+                    <p><strong>$400.00</strong></p>
+                    <button>Añadir al Carrito</button>
+                    <button class="cart-button"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+                <div class="product-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToIE0iBI8NrvbHrko05BsF3-r0SH4l3Iuw_g&s" alt="comedor">
+                    <h3>Comedor</h3>
+                    <p>Alta calidad, comedor para aves.</p>
+                    <p><strong>$151.00</strong></p>
+                    <button>Añadir al Carrito</button>
+                    <button class="cart-button"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+                <div class="product-item">
+                    <img src="https://www.avemundo.com.mx/images/stories/virtuemart/product/resized/ninfa_result_420x420.jpg" alt="alimento">
+                    <h3>alimento</h3>
+                    <p>Alta calidad, alimento para aves, semillas.</p>
+                    <p><strong>$356.00</strong></p>
+                    <button>Añadir al Carrito</button>
+                    <button class="cart-button"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+                <div class="product-item">
+                    <img src="https://m.media-amazon.com/images/I/71qvJCvMt5L._AC_UF1000,1000_QL80_.jpg" alt="accesorios">
+                    <h3>Accesorios</h3>
+                    <p>Alta calidad, 12 piezas de juguetes para aves.</p>
+                    <p><strong>$300.00</strong></p>
+                    <button>Añadir al Carrito</button>
+                    <button class="cart-button"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+                <div class="product-item">
+                    <img src="https://www.petco.com.mx/medias/101625.jpg-1200ftw?context=bWFzdGVyfHJvb3R8MzMwNTk0fGltYWdlL2pwZWd8aDVkL2g1Mi8xMDE4MDc0NDE4MzgzOC8xMDE2MjUuanBnXzEyMDBmdHd8OGMxYTBkYjk3NjVkZTRhMTIyZjMzZTVmYjE3MDVhZmQ0MGUwNzBmOGFmOTFmNGRkMWMxZmE4OGVjYWMyZGExMQ" alt="transportadora">
+                    <h3>Trasportadora</h3>
+                    <p>Alta calidad, transportadora para aves.</p>
+                    <p><strong>$348.00</strong></p>
+                    <button>Añadir al Carrito</button>
+                    <button class="cart-button"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+
+            </div>
+        </section>
+    </div>         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="section testimonials" id="testimonios">
+        <h2 class="section-title">Testimonios</h2>
+        <div class="testimonial">
+            <p>"Este es el mejor producto que he comprado, ¡lo recomiendo mucho!"</p>
+            <p><strong>- Cliente Satisfecho</strong></p>
+        </div>
+        <div class="testimonial">
+            <p>"Excelente servicio y calidad en todos sus productos."</p>
+            <p><strong>- Cliente Feliz</strong></p>
+        </div>
+    </div>    
+
+    <section id="contacto">
+        <footer>            
+            <p>Contacto: info@empresa.com | Teléfono: +123 456 7890</p>
+            <p>&copy; 2024 AquaMar. Todos los derechos reservados.</p>
+        </footer>
+    </section>
+</body>
